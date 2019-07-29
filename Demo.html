@@ -1,0 +1,33 @@
+<html>
+    <head>
+
+        <script src="scripts/angular.js"></script>
+        <script src="modules/DemoModule.js"></script>
+        <script src="controller/HomeController.js"></script>
+        <style>
+       
+        dt{
+            font-weight:bold;
+        }
+        </style>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+        <h2>Title</h2>
+        <dl>
+        <dt>Product Id</dt>
+        <dd>{{product.id}}</dd>
+
+        <dt>name</dt>
+        <dd>{{product.name}}</dd>
+
+        <dt>price</dt>
+        <dd>{{product.price}}</dd>
+
+        <dt>qty</dt>
+        <dd>{{product.qty}}</dd>
+            <dt>total</dt>
+            <dd>{{total()}}</dd>
+        </dl>
+
+    </body>
+</html>

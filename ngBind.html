@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="scripts/angular.js"></script>
+        <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController",function($scope){
+
+            $scope.isDetailsVisibal=false;
+            $scope.isRegisterVosobal=true;
+
+            $scope.SubmitClick=function(){
+
+                $scope.isDetailsVisibal=true;
+                $scope.isRegisterVosobal=false;
+
+            }
+        });
+        </script>
+    </head>
+    <body ng-app="DemoApp" ng-controller="HomeController">
+        <div class="container">
+            <form ng-show="isRegisterVosobal">
+
+                <h2>Register Product</h2>
+                <div class="form-group">
+                    <lable>Name</lable>
+                    <div>
+                        <input type="text" ng-model="txtName" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                        <lable>Price</lable>
+                        <div>
+                            <input type="text" ng-model="txtPrice" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <lable>Shipped</lable>
+                        <div>
+                            <select ng-model="IsCity" class="form-control">
+                                <option>Delhi</option>
+                                <option>HYD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Manufatured</label>
+                        <div>
+                            <input type="date" ng-model="txtmfd" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <lable>Is in stock</lable>
+                        <div>
+                            <input type="checkbox" ng-model="Instock" class="form-check">Yes
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button ng-click="SubmitClick()" class="btn btn-success">Submit</button>
+                    </div>
+            </form>
+                    <div ng-if="isDetailsVisibal" class="bg-info text-white">
+
+                        <fieldset>
+                        <legend>Product Details</legend>
+                         <table class="table table-hover text-white">
+                         <tr>
+                             <td>Name</td>
+                                <td ng-bind="txtName"></td>
+                                </tr>
+                                 <tr>
+                                <td>Price</td>
+                                <td ng-bind="txtPrice"></td>
+                                 </tr>
+                             <tr>
+                                 <td>Shipped</td>
+                                    <td ng-bind="IsCity"></td>
+                                        </tr>
+                                         <tr>
+                                            <td>Manufatured</td>
+                                            <td>{{txtmfd|date}}</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Is in stock</td>
+                                                <td>{{(Instock==true)?"Availble":"uot of stock"}}</td> 
+                                                                    </tr>
+                            </table>
+                        </fieldset>
+                        <div align="center">
+                            <a class="btntxt text-white" href="ourpage.html">Back</a>
+                            </div>
+                    </div>
+
+        </div>
+
+    </body>
+</html>

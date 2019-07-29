@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="scripts/angular.js"></script>
+        <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController",function($scope)
+        {
+            $scope.products=[{
+                id:1,
+                Name:"Sumsang TV",
+                Price:45000
+            },
+            {
+                id:2,
+                Name:"Shose",
+                Price:9000
+            }
+            ];
+            $scope.NewProduct;
+            $scope.AddProduct=function(prod){
+                prod.id=$scope.products.length+1;
+                $scope.NewProduct={
+                    id:prod.id,
+                    Name:prod.Name,
+                    Price:prod.Price
+                }
+                $scope.products.push($scope.NewProduct);
+                alert("Record Inserted");
+                prod.Name="";
+                prod.Price="";
+            }
+            $scope.DeleteClick=function(id){
+                $scope.index=id-1;
+                var x=confirm("Are u sure,want tp delete");
+                if(x==true)
+                {
+                    $scope.products.splice($scope.index,1);
+                }
+            }
+        });
+        </script>
+    </head>
+    <body ng-app="DemoApp" ng-controller="HomeController">
+      <div class="container">
+
+        <div>
+            <form>
+                <h3>Add product</h3>
+                <div class="form-group">
+                    <lable>product id</lable>
+                    <input ng-model="prod.id" type="number" readonly value="{{products.length+1}}" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <lable>Name</lable>
+                    <input ng-model="prod.Name" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <lable>Price</lable>
+                    <input ng-model="prod.Price" type="text" class="form-control"><br>
+                    <button ng-click="AddProduct(prod)" class="btn btn-primary">Add Product</button>
+                    
+                </div>
+            </form>
+
+
+        </div>
+        <h3>Product List</h3>
+        <table class="table table-hover">
+            <thead class="bg-success text-white">
+                <th>Product id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td>{{product.id}}</td>
+                    <td>{{product.Name}}</td>
+                    <td>{{product.Price}}</td>
+                    <td><button ng-click="DeleteClick(product.id)" class="btn btn-danger">Delete</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+      </div>  
+
+    </body>
+</html>

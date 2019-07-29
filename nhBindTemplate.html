@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script src="scripts/angular.js"></script>
+
+    </head>
+    <body ng-app>
+        <div>
+        Firs Name:
+        <input type="text" ng-model="Fname">
+        <br>
+        Last Name:
+        <input type="text" ng-model="lname">
+        <br>
+        <input type="checkbox" ng-model="IsAngularjsStu">
+        Is Angular Js Student
+        <br>
+        <span ng-bind-template="Hello!{{Fname}} {{lname}} {{(IsAngularjsStu==true)?'welcome to angular js':'plz join Angular js'}}"></span>
+            </div>
+    </body>
+</html>

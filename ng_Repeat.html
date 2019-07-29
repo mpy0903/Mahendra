@@ -1,0 +1,40 @@
+<html>
+    <head>
+        
+        <script src="scripts/angular.js"></script>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body ng-app>
+        <div class="container">
+            <div ng-init="categroies=['Electronics','Shose']">
+                <h2>categry</h2>
+                <ol>
+                        <li ng-repeat="item in categroies">{{item}}</li>
+                </ol>
+                <div ng-init="products=[{id:1,Name:'samsung Tv',price:45000,photo:'Images/car.jpg'},{id:2,Name:'nike Shose',price:9000,photo:'Images/download.png'}]">
+                    <h2>product Table</h2>
+                    <table class="table">
+                    <thead class="ng-primary">
+                        <th>Product id</th>
+                        <th>Product name</th>
+                        <th>Product price</th>
+                        <th>priview</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products">
+                            <td>{{product.id}}</td>
+                            <td>{{product.Name}}</td>
+                            <td>{{product.price}}</td>
+                          <td><img src="{{product.photo}}" class="img-thumbnail" width="100" height="100">
+                            
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </body>
+    </html>

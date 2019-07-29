@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="scripts/angular.js"></script>
+
+    </head>
+    <body ng-app>
+        <div ng-init="shopings=[{cotegory:'Electronix',products:['Tv','mpbile']},
+        {cotegory:'Shose',products:['nikeshose','Leecoperr']}]">
+      <h2>Shoping cotegory</h2>
+      <div ng-repeat="item in shopings">
+          <details>
+          <summary>{{item.cotegory}}</summary>      
+           <ul>
+               <li ng-repeat="product in item.products">
+
+                {{product}}
+               </li>
+           </ul> 
+           </details>
+        </div>
+
+    </body>
+    </html>
